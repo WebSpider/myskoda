@@ -32,7 +32,9 @@ class RestApi:
         self.session = session
         self.authorization = authorization
 
-    async def _make_request(self, url: str, method: str, json: dict | None) -> ClientResponse:
+    async def _make_request(
+        self, url: str, method: str, json: dict | None = None
+    ) -> ClientResponse:
         response = ClientResponse()
         try:
             async with asyncio.timeout(REQUEST_TIMEOUT_IN_SECONDS):
@@ -47,7 +49,7 @@ class RestApi:
         return response
 
     async def _make_get_request[T](self, url: str, deserialize: Callable[[str], T]) -> T:
-        response = await self._make_request(url=url, method=METH_GET, json=None)
+        response = await self._make_request(url=url, method=METH_GET)
         response_text = await response.text()
         try:
             data = deserialize(response_text)
@@ -59,10 +61,10 @@ class RestApi:
         else:
             return data
 
-    async def _make_post_request(self, url: str, json: dict | None) -> ClientResponse:
+    async def _make_post_request(self, url: str, json: dict | None = None) -> ClientResponse:
         return await self._make_request(url, method=METH_POST, json=json)
 
-    async def _make_put_request(self, url: str, json: dict | None) -> ClientResponse:
+    async def _make_put_request(self, url: str, json: dict | None = None) -> ClientResponse:
         return await self._make_request(url, method=METH_PUT, json=json)
 
     async def get_info(self, vin: str) -> Info:
