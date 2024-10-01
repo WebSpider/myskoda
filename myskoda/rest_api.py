@@ -47,7 +47,7 @@ class RestApi:
         return response
 
     async def _make_get_request[T](self, url: str, deserialize: Callable[[str], T]) -> T:
-        response = await self._make_request(url=url, method=METH_GET)
+        response = await self._make_request(url=url, method=METH_GET, json=None)
         response_text = await response.text()
         try:
             data = deserialize(response_text)
