@@ -33,6 +33,7 @@ class RestApi:
         self.authorization = authorization
 
     async def _make_request(self, url: str, method: str, json: dict | None) -> ClientResponse:
+        response = ClientResponse()
         try:
             async with asyncio.timeout(REQUEST_TIMEOUT_IN_SECONDS):
                 response = await self.session.request(
@@ -122,7 +123,6 @@ class RestApi:
         """List all vehicles by their vins."""
         response = await self._make_get_request(
             url="/v2/garage?connectivityGenerations=MOD1&connectivityGenerations=MOD2&connectivityGenerations=MOD3&connectivityGenerations=MOD4",
-            headers=await self._headers(),
         )
         json = await response.json()
         return [vehicle["vin"] for vehicle in json["vehicles"]]
@@ -225,7 +225,7 @@ class RestApi:
     async def stop_charging(self, vin: str) -> None:
         """Stop charging the car."""
         _LOGGER.debug("Stopping charging of vehicle %s", vin)
-        response = await self.make_post_request(
+        response = await self._make_post_request(
             url="/v1/charging/{vin}/stop",
         )
         await response.text()
