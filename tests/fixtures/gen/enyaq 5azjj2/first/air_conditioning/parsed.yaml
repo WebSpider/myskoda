@@ -1,0 +1,37 @@
+air_conditioning_at_unlock: false
+car_captured_timestamp: '2024-10-11T19:19:03+00:00'
+charger_connection_state: DISCONNECTED
+charger_lock_state: UNLOCKED
+errors: []
+estimated_date_time_to_reach_target_temperature: '2024-10-11T20:41:49.625895+00:00'
+heater_source: null
+seat_heating_activated:
+  front_left: true
+  front_right: true
+state: 'OFF'
+steering_wheel_position: LEFT
+target_temperature:
+  temperature_value: 19.5
+  unit_in_car: CELSIUS
+timers:
+- enabled: false
+  id: 1
+  selected_days:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  - FRIDAY
+  time: 08:05:00
+  type: RECURRING
+- enabled: false
+  id: 2
+  selected_days:
+  - TUESDAY
+  time: '17:30:00'
+  type: ONE_OFF
+window_heating_enabled: true
+window_heating_state:
+  front: 'OFF'
+  rear: 'OFF'
+  unspecified: INVALID
