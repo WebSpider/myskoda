@@ -268,8 +268,29 @@ class MySkoda:
             return []
         return [vehicle.vin for vehicle in garage.vehicles]
 
-    async def get_vehicle(self, vin: str) -> Vehicle:
+    async def get_vehicle(
+        self,
+        vin: str,
+        quick: bool = False,
+        source: Vehicle | None = None,
+    ) -> Vehicle:
         """Load a full vehicle based on its capabilities."""
+        if quick and source:
+            vehicle = source
+            info = vehicle.info
+
+            if info.is_capability_available(CapabilityId.STATE):
+                vehicle.status = await self.get_status(vin)
+                vehicle.driving_range = await self.get_driving_range(vin)
+
+            if info.is_capability_available(CapabilityId.PARKING_POSITION):
+                vehicle.positions = await self.get_positions(vin)
+
+            if info.is_capability_available(CapabilityId.VEHICLE_HEALTH_INSPECTION):
+                vehicle.health = await self.get_health(vin)
+
+            return vehicle
+
         info = await self.get_info(vin)
         maintenance = await self.get_maintenance(vin)
 
