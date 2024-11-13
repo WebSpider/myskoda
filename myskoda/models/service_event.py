@@ -120,6 +120,73 @@ class ServiceEventCharging(ServiceEvent, DataClassORJSONMixin):
     data: ServiceEventChargingData
 
 
+@dataclass
+class ServiceEventChangeSocData(ServiceEventData):
+    """Data inside the Change Soc Service Event."""
+
+    mode: ChargeMode = field(metadata=field_options(deserialize=_deserialize_mode))
+    state: ChargingState = field(metadata=field_options(deserialize=_deserialize_charging_state))
+    soc: int
+    charged_range: int = field(metadata=field_options(alias="chargedRange"))
+    time_to_finish = field(
+        metadata=field_options(alias="timeToFinish", deserialize=_deserialize_time_to_finish)
+    )
+
+
+@dataclass
+class ServiceEventChangeSoc(ServiceEvent, DataClassORJSONMixin):
+    """The Change-SoC service event."""
+
+    data: ServiceEventChangeSocData
+
+
+@dataclass
+class ServiceEventChangeAccess(ServiceEvent, DataClassORJSONMixin):
+    """The Change Access service event."""
+
+    data: ServiceEventData
+
+
+@dataclass
+class ServiceEventChangeLights(ServiceEvent, DataClassORJSONMixin):
+    """The Change Lights service event."""
+
+    # TODO @webspider: Get raw traces for this service event
+    data: ServiceEventData
+
+
+@dataclass
+class ServiceEventClimatisationCompleted(ServiceEvent, DataClassORJSONMixin):
+    """The ClimatisationCompleted service event."""
+
+    # TODO @webspider: Get raw traces for this service event
+    data: ServiceEventData
+
+
+@dataclass
+class ServiceEventChangeRemainingTime(ServiceEvent, DataClassORJSONMixin):
+    """The Change Remaining Time service event."""
+
+    # TODO @webspider: Get raw traces for this service event
+    data: ServiceEventData
+
+
+@dataclass
+class ServiceEventChangeChargeMode(ServiceEvent, DataClassORJSONMixin):
+    """The Change Charge Mode service event."""
+
+    # TODO @webspider: Get raw traces for this service event
+    data: ServiceEventData
+
+
+@dataclass
+class ServiceEventChargingStatusChanged(ServiceEvent, DataClassORJSONMixin):
+    """The Charging Status Changed service event."""
+
+    # TODO @webspider: Get raw traces for this service event
+    data: ServiceEventData
+
+
 class UnexpectedChargeModeError(Exception):
     pass
 
