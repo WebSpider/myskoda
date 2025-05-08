@@ -233,7 +233,7 @@ reports:
       title: "\u0160koda Enyaq"
       trim_level: Business Edition
     state: GUEST_USER
-    timestamp: '2025-04-25T10:39:41.551480+00:00'
+    timestamp: null
     vin: TMOCKAA0AA000000
     workshop_mode_enabled: false
   success: true
@@ -276,7 +276,7 @@ reports:
         one_x: https://mysmob.api.connect.skoda-auto.cz/api/v2/vehicle-status/render?carType=SUV&vehicleState=1-1-1-1-0-0-0-0-2&lastModifiedAt=1744797554&dimension=1x&theme=LIGHT
         three_x: https://mysmob.api.connect.skoda-auto.cz/api/v2/vehicle-status/render?carType=SUV&vehicleState=1-1-1-1-0-0-0-0-2&lastModifiedAt=1744797554&dimension=3x&theme=LIGHT
         two_x: https://mysmob.api.connect.skoda-auto.cz/api/v2/vehicle-status/render?carType=SUV&vehicleState=1-1-1-1-0-0-0-0-2&lastModifiedAt=1744797554&dimension=2x&theme=LIGHT
-    timestamp: '2025-04-25T10:39:41.841267+00:00'
+    timestamp: null
   success: true
   type: get
   url: /v2/vehicle-status/TMOCKAA0AA000000
@@ -331,7 +331,7 @@ reports:
       - SATURDAY
       time: 00:00
       type: ONE_OFF
-    timestamp: '2025-04-25T10:39:42.860912+00:00'
+    timestamp: null
     window_heating_enabled: false
     window_heating_state:
       front: 'OFF'
@@ -383,7 +383,7 @@ reports:
         latitude: 53.470636
         longitude: 9.689872
       type: VEHICLE
-    timestamp: '2025-04-25T10:39:43.763001+00:00'
+    timestamp: null
   success: true
   type: get
   url: /v1/maps/positions?vin=TMOCKAA0AA000000
@@ -398,7 +398,7 @@ reports:
   result:
     captured_at: '2025-04-25T08:15:26.939000+00:00'
     mileage_in_km: 63
-    timestamp: '2025-04-25T10:39:43.903153+00:00'
+    timestamp: null
     warning_lights:
     - category: ASSISTANCE
       defects: []
@@ -519,7 +519,7 @@ reports:
       name: Thuis
       next_charging_time: null
       target_state_of_charge_in_percent: 80
-    timestamp: '2025-04-25T10:39:46.210998+00:00'
+    timestamp: null
   success: true
   type: get
   url: /v1/charging/TMOCKAA0AA000000/profiles
@@ -538,7 +538,7 @@ reports:
       oil_service_due_in_km: null
     predictive_maintenance: null
     preferred_service_partner: null
-    timestamp: '2025-04-25T10:39:46.706522+00:00'
+    timestamp: null
   success: true
   type: get
   url: /v3/vehicle-maintenance/vehicles/TMOCKAA0AA000000
@@ -558,7 +558,7 @@ reports:
       engine_type: electric
       remaining_range_in_km: 472
     secondary_engine_range: null
-    timestamp: '2025-04-25T10:39:46.904056+00:00'
+    timestamp: null
     total_range_in_km: 472
   success: true
   type: get
@@ -599,7 +599,7 @@ reports:
       fahrenheit: 72.0
       unit_in_car: CELSIUS
     timers: []
-    timestamp: '2025-04-25T10:39:47.330614+00:00'
+    timestamp: null
   success: true
   type: get
   url: /v1/vehicle-automatization/TMOCKAA0AA000000/departure/timers?deviceDateTime=2025-04-25T12%3A39%3A46.978443%2B02%3A00
